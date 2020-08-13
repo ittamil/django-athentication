@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+<style>
+   .navbar-custom { 
+            background-color: crimson; 
+        } 
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="/">Home</a>
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item">
+          
+            <a href="#" style="text-decoration: none; color: white;" >About</a>
+            
+          </li>
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'edit_profile' %}" style="text-decoration: none; color: white;">Edit Profile</a></li>
+            <li><a href="{% url 'logout' %}" style="text-decoration: none; color: white;">Logout</a></li><br/>
+            {% endif %}
+         </ul>
+     </div>
+    </nav>
+    <br/>
+    <div class="container">
+    <table class="table table-hover ">
+      <thead>
+        <tr class="table-danger">
+          <th scope="col"> <center style="align-items: center;">User Details</center> </th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+         <td>Username</td>
+         <td>{{user.username}}</td>
+         </tr>
+        <tr>
+         <td>First Name</td>
+         <td>{{user.first_name}}</td>
+        </tr>
+        <tr>
+         <td>Last Name</td>
+         <td>{{user.last_name}}</td>
+        </tr>
+        <tr>
+         <td>Email ID</td>
+         <td>{{user.email}}</td>
+        </tr>
+     </tbody>
+    </table>
+    </div>
+   
+{% endblock %}
