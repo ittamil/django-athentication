@@ -1,4 +1,4 @@
-# django-athentication:
+# django-authentication:
  * User Registration
  * User Login
  * Forget Password
